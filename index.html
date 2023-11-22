@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>MY PORTFOLIO</title>
+ <link rel="icon" type="image/x-icon" href="self.jpg">
+
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=Varela+Round&amp;display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    }
+
+html{
+    font-size: 11px;
+    font-family: Garamond;
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+.container{
+
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-direction: left; 
+}
+.image
+{
+    padding-left: 10px;
+}
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+p{
+    color: black;
+    font-size: 1.4rem;
+    margin-top: 5px;
+    font-weight: 300px;
+    letter-spacing: .05rem;
+}
+/* header */
+#header{
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: auto;
+}
+#header .header{
+    min-height: 8vh;
+    background-color: #306ED8;
+}
+#header .nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
+    padding: 0 10px;
+}
+#header .nav-list ul {
+    list-style: none;
+    position: absolute;
+    background-color: #3FEEE6;
+    width: 100vw;
+    height: 100vh;
+    left: 100%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.5s ease left;
+}
+#header .nav-list ul.active {
+    left: 0%;
+}
+#header .nav-list ul a {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    display: block;
+}
+#header .nav-list ul a::after {
+    content: attr(data-after);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: rgba(240, 248, 255, 0.021);
+    font-size: 13rem;
+    letter-spacing: 50px;
+    z-index: -1;
+    transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+    transform: translate(-50%, -50%) scale(.5);
+    letter-spacing: initial;
+    color: black;
+}
+#header .nav-list ul li :hover
+{
+    color: black;
+}
+#header .hamburger {
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    border: 4px solid white;
+    border-radius: 52%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    cursor: pointer;
+    transform: scale(0.8);
+    margin-right: 20px;
+}
+#header .hamburger:after {
+    position: absolute;
+    content: '';
+    height: 50%;
+    width: 50%;
+    border-radius: 50%;
+    border: 2px solid white;
+    animation: hamburger_puls 1s ease infinite;
+}
+#header .hamburger .bar {
+    height: 2px;
+    width: 30px;
+    position: relative;
+    background-color: #00308F;
+    z-index: -1;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    background-color: #00308F;
+    transition: 0.3s ease;
+    transition-property: top, bottom;
+}
+#header .hamburger .bar::after {
+    top: 8px;
+}
+#header .hamburger .bar::before {
+    bottom: 8px;
+}
+
+.logo
+{
+    width: 40px;
+    height: 40px;
+    border-style: ;
+margin-left: 10px;
+border-radius: 20px;
+}
+/* end header */
+/* My section */
+#my-section{
+  
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+    
+}
+#my-section::after{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 80%;
+    width: 80%;
+ 
+    opacity: .7;
+    z-index: -1;
+}
+#my-section .my{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 30px;
+    justify-content: flex-start;
+}
+#my-section h1{
+    display: block;
+    position: relative;
+    width: fit-content;
+    font-size: 3rem;
+    color:  transparent;
+    animation: text_reveal 1s ease forwards;
+    animation-delay: 1.5s;
+}
+#my-section h1:nth-child(1){
+    animation-delay: 1s;
+}
+#my-section h1:nth-child(2){
+    animation-delay: 2s;
+}
+#my-section h1:nth-child(3){
+    animation: text_reveal_name 1s ease forwards;
+    animation-delay: 3s;
+}
+#my-section h1 span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50%;
+    width: 0;
+    background-color: white;
+    animation: text_reveal_box 1s ease;
+    animation-delay: 5s;
+}
+
+#my-section h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#my-section h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#my-section h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+
+.section-title{
+    font-size : 4rem;
+    font-weight: 300px;
+    color: #15f4ee;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-align:center
+    
+}
+
+.section-title span{
+    color: black;
+}
+.cta{
+    display: inline-block;
+    padding: 10px 20px;
+    color: black;
+    background-color: transparent;
+    border: 8px solid #3FEEE6;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 30px;
+    transition: .3s ease;
+    border-radius: 30px;
+    transition-property: background-color, color;
+}
+.cta:hover{
+    color: white;
+    background-color:#3FEEE6;
+}
+.name h1{
+    font-size: 3rem;
+
+    color: black;
+    font-style:Comic Sans;
+
+}
+
+
+
+
+#about .about{
+    flex-direction: column-reverse;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 70px 0px;
+}
+#about .col-left{
+    width: 300px;
+    height: 300px;
+}
+
+#about .col-right h2{
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: .2rem;
+    margin-bottom: 5px;
+}
+#about .col-right p{
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+#about .col-right .cta{
+    color: black;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    font-size: 2rem;
+}
+#about .col-left .about-img{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 20px;
+}
+
+#about .col-left .about-img::after{
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 29px;
+    bottom: -12px;
+    height: 96%;
+    width: 100%;
+    border: 10px solid black;
+    z-index: -1;
+}
+#project .project{
+padding-top: 30px;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+#project .project-items{
+    width: 400px;
+}
+#project .project-item{
+    width: 82%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 18px 0 #0000002c;
+}
+#project .project-item:hover{
+    box-shadow: 0px 0px 5px 0 #B2FFFF;
+    transition: .3s  ease box-shadow;
+}
+#project .icon{
+    width: 30%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+#project .project-info h1{
+    font-size: 2.5rem;
+    font-weight: 20px;
+    margin-bottom: 5px;
+
+}
+#project .project-info h2{
+    font-size: 1.3rem;
+    line-height: 2rem;
+    font-weight: 500;
+}
+/* end contact */
+/* footer start */
+#footer{
+    background-color:#306ED8;
+}
+#footer .footer{
+    min-height:  100px;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+#footer h2{
+    color: white;
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: .1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#footer .social-icon{
+    display: flex;
+    margin-bottom: 30px;
+}
+#footer .social-item{
+    height: 50px;
+    width: 50px;
+    margin: 0 15px;
+} 
+#footer p{
+    color: white;
+    font-size: 1.3rem;
+}
+@keyframes hamburger_puls {
+    0% {
+        opacity: 3;
+        transform: scale(3);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+@keyframes text_reveal_box {
+    0%{
+        width: 100%;
+        left: 0;
+    }
+    100%{
+        width: 0;
+        left: 100%;
+    }
+    
+}
+@keyframes text_reveal {
+    100%{
+        color: #00BFFF;
+    }
+    0%
+    {
+        color:white;
+    }
+}
+@keyframes text_reveal_name {
+    100%{
+        color:#00BFFF;
+
+    }
+    0%
+    {
+        color:white;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .cta{
+        font-size: 2.5rem;
+        padding: 20px 60px;
+    }
+    h1 .section-title{
+        font-size: 6rem;
+    }
+    #my-container{
+        font-size: 6rem;
+    }
+    
+    #about .about{
+        flex-direction: row;
+        
+    }
+    #about .col-left{
+        width: 600px;
+        height: 400px;
+        padding-left: 60px;
+
+    }
+    #about .about .col-left .about-img::after{
+        left: -45px;
+        top: 34px;
+        height: 98%;
+        width: 98%;
+        border: 10px solid #1F2833;
+    }
+    #about .col-right{
+        text-align: left;
+        padding: 30px;
+    }
+    #about .col-right h1{
+        text-align: left;
+    }
+    /* contact */
+    #project .project{
+        flex-direction: column;
+        padding: 100px 0;
+        align-items: center;
+        justify-content: center;
+        min-width: 20vh;
+    }
+    #project .project-items{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+    }
+    #project .project-item{
+        margin: 20px;
+        flex-direction: row;
+    }
+    #project .project-item .icon{
+        height: 100px;
+        width: 80px;
+    }
+    #project .project-item .icon img{
+        object-fit: contain;
+    }
+    #project .project-item .project-info{
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+}
+
+
+
+.skills{
+margin-left: 26%;
+margin-right: 20%;
+margin-top: 30px;
+padding-bottom: 300px;
+  width: 50%;
+  border-radius: 10px;
+  max-width: 900px;
+  padding-bottom: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  box-shadow: 0 8px 36px 0 rgba(234,99,0,0.2);
+  height: 50%;
+}
+
+@media only screen and (max-width: 800px)
+{
+.skills
+{
+  margin-right: 10%;
+  margin-left: 15%;
+  width: 70%;
+}
+}
+
+.skill-name{
+  font-size: 18px;
+  font-weight: 700;
+  color:black;
+  text-transform: uppercase;
+  margin: 15px 0;
+  border-radius: 300px;
+  padding-top: 10px;
+
+}
+.skill-bar{
+  height: 20px;
+  background: #e8f9fd;
+  border-radius: 300px;
+
+
+}
+.skill-per{
+  height: 20px;
+  background: #ff1d58;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 1.5s 1;
+}
+.skill-per2{
+  height: 20px;
+  border-radius: 300px;
+  background:#0049B7;
+  position: relative;
+  animation: fillBars 2.5s 1;
+}
+.skill-per3{
+  height: 20px;
+  background: #ffa8B6;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per4{
+  height: 20px;
+  background:  #fff685;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per5{
+  height: 20px;
+  background: purple;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per6{
+  height: 20px;
+  background: #9df9ef;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per7{
+  height: 20px;
+  background: #ff6f61;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per8{
+  height: 20px;
+  background: #00ff99;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+.skill-per9{
+  height: 20px;
+  background: #9df9ef;
+  border-radius: 300px;
+  position: relative;
+  animation: fillBars 3.5s 1;
+}
+
+}
+.skill-per::after{
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #e8f9fd;
+  top: -20px;
+  right: 0;
+  transform: translateX(70%) rotate(90deg);
+  border-radius: 20px;
+}
+@keyframes fillBars{
+  from{
+    width: 0%;
+  }
+  to{
+    width: 100%;
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 1200px) {
+    /* header */
+    #header .hamburger {
+        display: none;
+    }
+    #header .nav-list ul {
+        position: initial;
+        display: block;
+        height: auto;
+        width: fit-content;
+        background-color: transparent;
+    }
+
+    #header .nav-list ul li {
+        display: inline-block;
+    }
+    #header .nav-list ul li a {
+        font-size: 1.8rem;
+    }
+    #header .nav-list ul a:after {
+        display: none;
+    }
+    /* End header */
+
+    #services .service-bottom .service-item {
+        flex-basis: 22%;
+        margin: 1.5%;
+    }
+    
+  
+} 
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa {
+  padding: 10px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 3px 0px;
+  border-radius: 20px;
+}
+    </style>
+
+</head>
+
+<body>
+    <!-- header -->
+    <section id="header">
+        <div class="header container">
+        	<div class="logo">
+        <a   href="#"><img src="sakpic.jpeg" alt="logo"></a>
+    </div>
+            <div class="nav-bar">
+                <div class="name">
+                    <a href="#my-section">
+                        <h1 style="font-family:Garamond">Saksham <span style="color: white">Raina</span></h1>
+
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="#my-section" data-after="Home"><strong>HOME</strong></a></li>
+                        <li><a href="#skills" data-after="Skills"><strong>SKILLS</strong></a></li>
+                        <li><a href="#project" data-after="Projects"><strong>PROJECT</strong></a></li>
+                        <li><a href="#about" data-after="About"><strong>ABOUT</strong></a></li>
+                        <li><a href="#footer" data-after="Contact"><strong>CONTACT</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- My section -->
+    <section id="my-section" >
+
+        <div class="my container">
+            <div>
+                <h1 >Hey, <span></span></h1>
+                <h1 style="padding-top: 10px;">HELLO ! WELCOME TO MY PORTFOLIO<span></span></h1>
+                
+<h1 style="padding-top: 10px;">MY NAME IS Saksham Raina<span></span></h1>
+                <a style=" "  href="#projects" type="button" class="cta"><strong>Explore</strong></a>
+            </div>
+        </div>
+    </section>
+
+    
+   
+
+    <!-- about section -->
+    <section id="about" id="my-section">
+        <div class="about container">
+            <div class="col-left">
+                <div class="about-img">
+<img src="sakpic.jpeg">
+                </div>
+            </div>
+            <div class="col-right">
+                <h1 class="section-title"><strong>ABOUT<span>-ME</strong></span></h1>
+
+            <h1>   <p>Hey, I am Saksham Raina currently pursuing B-Tech (Information Technology ) from Nsut East Campus,New Delhi.</p>
+            <span></span>
+        </h1>
+                <a  style="border-width: 7px; border-radius: 20px;"  href="sakresume.pdf" download="sakresume.pdf" class="cta">Download Resume</a>
+            </div>
+        </div>
+    </section>
+    <!-- end about section -->
+
+
+  <section>
+    <!-- end f my section -->
+<h1 class="section-title" id="skills" style="padding-bottom: 10px;"><strong>SKILL<span>S</span></strong></h1>
+ <div class="skills">
+    <div class="skill">
+      <div class="skill-name">HTML</div>
+      <div class="skill-bar">
+        <div class="skill-per"style="max-width:90%"></div>
+      </div>
+    </div>
+    <div class="skill">
+      <div class="skill-name">CSS</div>
+      <div class="skill-bar">
+        <div class="skill-per2" style="max-width:70%"></div>
+      </div>
+
+<div class="skill">
+      <div class="skill-name">JAVA-SCRIPT</div>
+      <div class="skill-bar">
+        <div class="skill-per3"  style="max-width:70%"></div>
+      </div>
+
+      <div class="skill">
+      <div class="skill-name">C#</div>
+      <div class="skill-bar">
+        <div class="skill-per4 " style="max-width:90%"></div>
+      </div>
+
+<div class="skill">
+      <div class="skill-name">C++</div>
+      <div class="skill-bar">
+        <div class="skill-per5"style="max-width:90%"></div>
+      </div>
+
+
+    </div>
+    <div class="skill">
+      <div class="skill-name">DATA-STRU.-ALGO.</div>
+      <div class="skill-bar">
+        <div class="skill-per6"  style="max-width:95%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="skill">
+      <div class="skill-name">PYTHON</div>
+      <div class="skill-bar">
+        <div class="skill-per7"  style="max-width:50%"></div>
+      </div>
+    </div>
+  </div>
+  <div class="skill">
+      <div class="skill-name">VB-SCRIPT</div>
+      <div class="skill-bar">
+        <div class="skill-per8" per="60%" style="max-width:50%"></div>
+      </div>
+    </div>
+  </div>
+</section>
+   
+
+ 
+
+
+
+    <!-- Proj section -->
+    <section id="project">
+        <div class="project container">
+            <div>
+                <h1 class="section-title"><strong>PROJECT<span>S</span></strong></h1>
+            </div>
+            
+                <div class="project-item">
+                    <div class="icon">
+                    </div>
+                    <div class="project-info">
+                        <h1>Task Manager</h1>
+                        <h2 style="font-size: 18px;"><strong>A website made for maintainig the tasks..<a href="https://ak-royal.github.io/Call-Mee/#coding" target="_blank">Read More..</a></strong></h2>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="icon">
+                    	<img src="sakpic.jpeg">
+                    </div>
+                    <div class="project-info">
+                        <h1>PORTFOLIO</h1>
+                        <h2 style="font-size: 18px;"><strong>Website Fos showcasing my Skills and Knowledge..<a href="">Read More..</a> </strong></h2>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+    <!-- footer -->
+    <section id="footer">
+        <div class="footer container">
+            
+            <h2><strong>JOIN MY SOCIAL LIFE</strong></h2>
+            <div class="social-icon">
+                <div class="social-item">
+                    <a href="#" class="fa fa-linkedin"></a>
+
+                </div>
+                <div class="social-item">
+                   <a href="#" class="fa fa-facebook"></a>
+                </div>
+                <div class="social-item">
+                   <a class="fa fa-github" style="font-size:50px; color:white;padding-top: 1px;"></a>
+                </div>
+            </div>
+            <p>Copyright &copy; 2021 Saksham Raina. All rights reserved</p>
+        </div>
+    </section>
+    <script src="style.js"></script>
+</body>
+
+<script type="">
+    
+
+    const hamburger = document.querySelector('.header .nav-bar .nav-list .hamburger');
+const mobile_menu = document.querySelector('.header .nav-bar .nav-list ul');
+const menu_item = document.querySelectorAll('.header .nav-bar .nav-list ul li a');
+const header = document.querySelector('.header.container');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobile_menu.classList.toggle('active');
+});
+
+
+menu_item.forEach((item) => {
+    item.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        mobile_menu.classList.toggle('active');
+    });
+});
+</script>
+</html>
